@@ -1,3 +1,5 @@
+import { AddToCartButton } from './AddToCardButton'
+
 interface ProductProps {
   params: {
     slugs: Array<string>
@@ -18,6 +20,8 @@ export default function Product(props: ProductProps) {
       <p>Produto: {productName}</p>
       <p>Cor: {color}</p>
       <p>Tamanho: {size}</p>
+
+      <AddToCartButton />
     </>
   )
 }
