@@ -1,4 +1,5 @@
 import { AddToCartButton } from './AddToCardButton'
+import { Test } from './Test'
 
 interface ProductProps {
   params: {
@@ -12,6 +13,7 @@ interface ProductProps {
 // Streaming SSR => Ler/escrever dados de forma parcial + Server-side Rendering
 
 // Renderizar um componente pelo lado do servidor de forma PARCIAL
+// Client boundaries => caso o componente este encadeado em um componente usando "use client" todos componentes filhos também seram, só é possivel usar um server components se ele for passado como children para o componente pai.
 
 export default function Product(props: ProductProps) {
   const [productName, color, size] = props?.params?.slugs
@@ -21,7 +23,9 @@ export default function Product(props: ProductProps) {
       <p>Cor: {color}</p>
       <p>Tamanho: {size}</p>
 
-      <AddToCartButton />
+      <AddToCartButton>
+        <Test />
+      </AddToCartButton>
     </>
   )
 }
